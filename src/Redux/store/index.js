@@ -1,6 +1,6 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-// Definizione dello slice per il reducer jobs
+
 const jobsSlice = createSlice({
   name: 'jobs',
   initialState: {
@@ -23,7 +23,7 @@ const jobsSlice = createSlice({
   },
 });
 
-// Definizione dello slice per il reducer favorites
+
 const favoritesSlice = createSlice({
   name: 'favorites',
   initialState: [],
@@ -37,20 +37,20 @@ const favoritesSlice = createSlice({
   },
 });
 
-// Combina i reducer utilizzando combineReducers
+
 const rootReducer = {
   jobs: jobsSlice.reducer,
   favorites: favoritesSlice.reducer,
 };
 
-// Crea lo store utilizzando configureStore e passa i reducer combinati
+
 const store = configureStore({
   reducer: rootReducer,
 });
 
-// Export dello store
+
 export default store;
 
-// Export delle azioni per utilizzarle nei componenti
+
 export const { fetchJobsPending, fetchJobsFulfilled, fetchJobsRejected } = jobsSlice.actions;
 export const { addFavorite, removeFavorite } = favoritesSlice.actions;
